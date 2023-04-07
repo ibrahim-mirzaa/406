@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Practical 5</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div ng-init="Employee=1; Basicsalary=1000; commissionAmt=400; days=0">
+        <h2>Commission Amount</h2>
+        Name: <input type="text" ng-model="ename">
+        Days: <input type="number" ng-model="days">
+        <p>Total commission: {{commissionAmt * days}}</p>
+    </div>
+
+    <div ng-controller="LargestController">
+        <h2>Find the Largest Number</h2>
+        <p>First Number: <input type="number" ng-model="firstNumber"></p>
+        <p>Second Number: <input type="number" ng-model="secondNumber"></p>
+        <p><button ng-click="calculateLargest()">Find Largest</button></p>
+        <p>Largest Number: {{ largestNumber }}</p>
+    </div>
+
+    <script>
+        angular.module("myApp", []).controller("LargestController", function ($scope) {
+            $scope.firstNumber = 0;
+            $scope.secondNumber = 0;
+            $scope.largestNumber = 0;
+
+            $scope.calculateLargest = function () {
+                $scope.largestNumber = ($scope.firstNumber > $scope.secondNumber) ? $scope.firstNumber : $scope.secondNumber;
+            };
+        });
+    </script>
+
+</body>
+
+</html>
