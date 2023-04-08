@@ -1,0 +1,45 @@
+#1a
+
+>use exam
+
+> db.result.insertMany([{"sno":01,"name":"garry","class":"SYCS","tmarks":780,"grade":"A"},{"sno":02,"name":"zucc","class":"SYCS","tmarks":800,"grade":"A+"},{"sno":03,"name":"farhan","class":"SYCS","tmarks":950,"grade":"O"}])
+
+> db.result.find().pretty()
+
+> db.result.find({},{sno:1,name:1,class:1}).pretty()
+
+> db.result.find({grade:"A"}).pretty()
+
+> db.result.find({"tmarks":{$gt :800}}).pretty()
+
+> db.result.find().sort({name:1}).pretty()
+
+> db.result.find().sort({sno:1}).pretty()
+
+> db.result.find().sort({tmarks:1}).pretty()
+
+> db.result.update({sno:3},{$set :{tmarks:999}})
+
+> db.result.find().deleteOne({"grade":"A+"})
+
+
+
+#1b
+
+>use inventory
+
+> db.product.insert({"productno":"p1","decription":"earphone","company":"oneplus","price":2000})
+
+> db.product.insertMany([{"productno":"p2","decription":"laptop","company":"dell","price":66000},{"productno":"p3","decription":"smartphone","company":"samsung","price":8000}])
+
+> db.product.find().pretty()
+
+> db.product.find({productno:"p3"})
+
+> db.product.find().sort({"price":1}).pretty()
+
+> db.product.find().sort({"price":-1}).pretty()
+
+> db.product.find({"price":{$gt : 15500}}).pretty()
+
+> db.product.update({"productno":"p3"},{$set:{"price":70000}})
